@@ -1,7 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="12" fill="#01203F"/>
-  <rect x="17" y="13" width="12" height="9" fill="#FFFFFF"/>
-  <rect x="35" y="13" width="12" height="9" fill="#FFFFFF"/>
-  <rect x="13" y="26" width="38" height="27" rx="7" fill="#FFFFFF"/>
-  <rect x="30" y="33" width="4" height="11" fill="#01203F"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"><title>löwna</title><rect width="64" height="64" rx="12" fill="#0344DC"/><path fill="#FFFFFF" fill-rule="evenodd" d="M17 13H29V22H17ZM35 13H47V22H35ZM20 26H44A7 7 0 0 1 51 33V46A7 7 0 0 1 44 53H20A7 7 0 0 1 13 46V33A7 7 0 0 1 20 26ZM30 33V44H34V33Z"/></svg>

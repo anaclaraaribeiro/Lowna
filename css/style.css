@@ -411,7 +411,10 @@ html.js body:not(.is-loaded) .showreel__card { clip-path: inset(100% 0 0 0); }
 }
 .about__top { display: flex; flex-direction: column; gap: 44px; }
 .about__manifesto { display: flex; flex-direction: column; gap: 6px; font-weight: 300; font-size: clamp(40px, 6.39vw, 92px); line-height: 1.08; letter-spacing: -.03em; }
-.mline { display: block; overflow: hidden; padding-left: calc(var(--indent) * min(180px, 12.5vw)); padding-bottom: .04em; }
+/* escadinha medida no Figma: cada linha começa um pouco depois do meio da anterior */
+.mline { display: block; overflow: hidden; padding-left: var(--off, 0); padding-bottom: .04em; }
+.mline:nth-child(2) { --off: 2.15em; }
+.mline:nth-child(3) { --off: 5.25em; }
 .mline > span { display: inline-block; color: rgba(255, 255, 255, .6); transition: transform 1.2s var(--ease-out); transition-delay: calc(var(--indent) * .12s); }
 .mline strong { color: var(--shuttle-white); font-weight: 700; }
 html.js .about__manifesto:not(.is-in) .mline > span { transform: translateY(115%); }
