@@ -656,7 +656,8 @@ html.js [data-reveal="line"]:not(.is-in) { opacity: 1; transform: scaleX(0); }
   .hero__body { flex-direction: column; align-items: center; gap: 32px; padding: 40px 20px 0; text-align: center; }
   .hero__intro { align-items: center; width: 100%; }
   .hero__intro .chip { align-self: center; }
-  .hero__services { align-items: center; text-align: center; }
+  /* no celular a lista de serviços sai, mas o espaço dela continua */
+  .hero__services { align-items: center; text-align: center; visibility: hidden; }
   .hero__bottom { flex-direction: column; align-items: center; padding: 48px 20px 24px; }
   .hero__wordmark { font-size: min(24vw, 180px); }
   .hero__frame, .hero__body, .hero__bottom, .hero__intro { min-width: 0; }
@@ -667,7 +668,7 @@ html.js [data-reveal="line"]:not(.is-in) { opacity: 1; transform: scaleX(0); }
   .showreel__bars span { flex: 1; width: auto; }
 
   .services { gap: 48px; padding-block: 80px; }
-  .services__detail { flex-direction: column; }
+  .services__detail { display: none; }
   .services__list { align-items: flex-start; }
   .svc { white-space: normal; text-align: left; }
 
@@ -688,7 +689,7 @@ html.js [data-reveal="line"]:not(.is-in) { opacity: 1; transform: scaleX(0); }
   .footer__nav { align-items: center; }
   .footer__info { align-items: center; }
   .footer__card { min-height: 0; }
-  .footer__word { align-items: flex-end; padding-top: 40px; line-height: .9; }
+  .footer__word { align-items: flex-end; padding-top: 40px; line-height: .9; font-size: 23vw; }
   .footer__base { position: static; flex-direction: column; align-items: center; gap: 4px; padding: 12px 0 24px; }
 }
 
@@ -703,8 +704,8 @@ html.js [data-reveal="line"]:not(.is-in) { opacity: 1; transform: scaleX(0); }
 }
 
 @media (max-width: 600px) {
-  .about__manifesto { font-size: 8.2vw; }
-  .mline { padding-left: calc(var(--indent) * 9vw); }
+  /* mesma escadinha do desktop (recuo em em), com o texto menor para a última linha caber */
+  .about__manifesto { font-size: 7vw; }
   .about__facts { flex-direction: column; gap: 24px; }
 }
 
