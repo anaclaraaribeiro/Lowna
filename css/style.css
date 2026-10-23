@@ -720,9 +720,12 @@ html.js [data-reveal="line"]:not(.is-in) { opacity: 1; transform: scaleX(0); }
 }
 
 @media (max-width: 600px) {
-  /* escadinha no celular: texto maior e a última linha recua um pouco menos para caber */
-  .about__manifesto { font-size: 8vw; }
-  .mline:nth-child(3) { --off: 4.2em; }
+  /* escadinha no celular: linhas alinhadas à direita, com recuo à direita diminuindo,
+     assim o começo e o fim de cada linha descem em degraus */
+  .about__manifesto { font-size: 8.4vw; }
+  .mline { padding-left: 0; padding-right: var(--offr, 0); text-align: right; }
+  .mline:nth-child(1) { --offr: 2.75em; }
+  .mline:nth-child(2) { --offr: 1.2em; }
   .about__facts { flex-direction: column; gap: 24px; }
 }
 
