@@ -297,6 +297,7 @@ html.js body:not(.is-loaded) .showreel__card { clip-path: inset(100% 0 0 0); }
 .services__desc.is-swapping { opacity: 0; transform: translateY(8px); }
 
 .services__stack { position: relative; }
+.services__snap { display: none; }
 .services__pin { display: contents; }
 .services__list { display: flex; flex-direction: column; align-items: center; gap: 40px; }
 .svc {
@@ -589,7 +590,22 @@ html.js [data-reveal="line"]:not(.is-in) { opacity: 1; transform: scaleX(0); }
 @media (max-width: 1024px) {
   /* scroll fixado: imagem + lista ficam presas na tela e a rolagem dentro da seção troca a categoria */
   .services__desc { display: none; }
-  .services__stack { height: 280svh; }
+  /* altura do pin + 60svh de rolagem por categoria */
+  .services__stack { height: calc(100svh - 76px + 240svh); }
+  /* um ponto de parada no meio de cada fatia: a rolagem do celular não consegue pular categoria */
+  html { scroll-snap-type: y proximity; }
+  .services__snap {
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 1px;
+    height: 1px;
+    top: calc(240svh * (var(--i) + .5) / 4);
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    scroll-margin-top: 76px;
+    pointer-events: none;
+  }
   .services__pin {
     position: sticky;
     top: 76px;
@@ -704,8 +720,9 @@ html.js [data-reveal="line"]:not(.is-in) { opacity: 1; transform: scaleX(0); }
 }
 
 @media (max-width: 600px) {
-  /* mesma escadinha do desktop (recuo em em), com o texto menor para a última linha caber */
-  .about__manifesto { font-size: 7vw; }
+  /* escadinha no celular: texto maior e a última linha recua um pouco menos para caber */
+  .about__manifesto { font-size: 8vw; }
+  .mline:nth-child(3) { --off: 4.2em; }
   .about__facts { flex-direction: column; gap: 24px; }
 }
 
