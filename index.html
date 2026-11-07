@@ -5,10 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Löwna Studio</title>
 <script>if('scrollRestoration' in history)history.scrollRestoration='manual';window.addEventListener('beforeunload',function(){window.scrollTo(0,0)});if(location.hash){history.replaceState(null,'',location.pathname+location.search)}window.scrollTo(0,0);</script>
-  <meta name="description" content="Estúdio de criação: sites, landing pages, reels para Instagram e kits de social media com direção de arte própria.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Badeen+Display&family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+  <meta name="description" content="Löwna Studio, estúdio de criação: sites, landing pages, reels para Instagram e kits de social media com direção de arte própria do início ao fim.">
+  <link rel="canonical" href="https://www.lowna.com.br/">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#01203F">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Löwna Studio">
+  <meta property="og:url" content="https://www.lowna.com.br/">
+  <meta property="og:title" content="Löwna Studio">
+  <meta property="og:description" content="Estúdio de criação: sites, landing pages, reels para Instagram e kits de social media com direção de arte própria.">
+  <meta property="og:image" content="https://www.lowna.com.br/assets/img/og-lowna.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="löwna, estúdio de criação: sites, reels e social media">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Löwna Studio">
+  <meta name="twitter:description" content="Estúdio de criação: sites, landing pages, reels para Instagram e kits de social media.">
+  <meta name="twitter:image" content="https://www.lowna.com.br/assets/img/og-lowna.jpg">
+  <meta name="twitter:image:alt" content="löwna, estúdio de criação: sites, reels e social media">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Löwna Studio",
+    "url": "https://www.lowna.com.br/",
+    "logo": "https://www.lowna.com.br/assets/img/apple-touch-icon.png",
+    "image": "https://www.lowna.com.br/assets/img/og-lowna.jpg",
+    "description": "Estúdio de criação: sites, landing pages, reels para Instagram e kits de social media com direção de arte própria.",
+    "email": "studio.lowna@gmail.com",
+    "telephone": "+55 43 9873-5248",
+    "sameAs": ["https://www.instagram.com/lownastudio/"]
+  }
+  </script>
+  <link rel="preload" href="assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/badeen-display-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/style.css">
   <script>document.documentElement.classList.replace('no-js', 'js');</script>
@@ -18,7 +50,7 @@
   <!-- ===================== HERO ===================== -->
   <section class="hero" id="topo">
     <div class="hero__bg" aria-hidden="true">
-      <img class="hero__grad" src="assets/grad2-hero.svg" alt="">
+      <img class="hero__grad" src="assets/grad2-hero.svg" alt="" width="1440" height="1901">
     </div>
     <div class="hero__scrim" aria-hidden="true"></div>
 
@@ -71,9 +103,9 @@
         </h1>
         <div class="showreel">
           <div class="showreel__card" id="showreel" aria-label="Trabalhos recentes">
-            <div class="slide is-active" data-slide><video src="assets/portfolio/apresentacao-conteudo-sm.mp4" poster="assets/portfolio/posters/apresentacao-conteudo.jpg" muted loop playsinline preload="none"></video></div>
-            <div class="slide" data-slide><img src="assets/portfolio/landing-servicos.webp" alt="Landing page de limpeza de lixeiras"></div>
-            <div class="slide" data-slide><video src="assets/portfolio/landing-musica.mp4" poster="assets/portfolio/posters/landing-musica.jpg" muted loop playsinline preload="none"></video></div>
+            <div class="slide is-active" data-slide><video src="assets/portfolio/apresentacao-conteudo-sm.mp4" poster="assets/img/poster-apresentacao-conteudo.webp" muted loop playsinline preload="none"><track kind="captions" src="assets/portfolio/sem-audio.vtt" srclang="pt" label="Sem áudio"></video></div>
+            <div class="slide" data-slide><img src="assets/img/landing-servicos.webp" alt="Landing page de limpeza de lixeiras"></div>
+            <div class="slide" data-slide><video src="assets/portfolio/landing-musica.mp4" poster="assets/img/poster-landing-musica.webp" muted loop playsinline preload="none"><track kind="captions" src="assets/portfolio/sem-audio.vtt" srclang="pt" label="Sem áudio"></video></div>
           </div>
           <div class="showreel__bars" aria-hidden="true"><span></span><span></span><span></span></div>
         </div>
@@ -113,12 +145,12 @@
       </ul>
       <div class="services__image" id="services-image">
         <div class="services__visual" id="services-visual" aria-hidden="true">
-          <div class="slide is-active" data-slide><img src="assets/portfolio/landing-servicos.webp" alt="" loading="lazy"></div>
-          <div class="slide slide--scroll" data-slide><img src="assets/portfolio/pagina-sobre.webp" alt="" loading="lazy"></div>
+          <div class="slide is-active" data-slide><img src="assets/img/landing-servicos.webp" alt="" loading="lazy"></div>
+          <div class="slide slide--scroll" data-slide><img src="assets/img/pagina-sobre.webp" alt="" loading="lazy"></div>
           <div class="slide slide--reels" data-slide>
-            <div class="reel"><video src="assets/portfolio/reels-1.mp4" poster="assets/portfolio/posters/reels-1.jpg" muted loop playsinline preload="none"></video></div>
-            <div class="reel"><video src="assets/portfolio/reels-2.mp4" poster="assets/portfolio/posters/reels-2.jpg" muted loop playsinline preload="none"></video></div>
-            <div class="reel"><video src="assets/portfolio/reels-3.mp4" poster="assets/portfolio/posters/reels-3.jpg" muted loop playsinline preload="none"></video></div>
+            <div class="reel"><video src="assets/portfolio/reels-1.mp4" poster="assets/img/poster-reels-1.webp" muted loop playsinline preload="none"><track kind="captions" src="assets/portfolio/sem-audio.vtt" srclang="pt" label="Sem áudio"></video></div>
+            <div class="reel"><video src="assets/portfolio/reels-2.mp4" poster="assets/img/poster-reels-2.webp" muted loop playsinline preload="none"><track kind="captions" src="assets/portfolio/sem-audio.vtt" srclang="pt" label="Sem áudio"></video></div>
+            <div class="reel"><video src="assets/portfolio/reels-3.mp4" poster="assets/img/poster-reels-3.webp" muted loop playsinline preload="none"><track kind="captions" src="assets/portfolio/sem-audio.vtt" srclang="pt" label="Sem áudio"></video></div>
           </div>
           <div class="slide slide--kit" data-slide>
             <div class="fx" style="left:-78.12px;top:-192.32px;width:502.2px;height:662.799px"
@@ -183,19 +215,19 @@
       <div class="work__row">
         <article class="card" data-reveal style="--r:1.174">
           <div class="card__media card__media--dark">
-            <img src="assets/portfolio/secao-site.png" alt="Seção de site: título, botão e quatro blocos de benefícios sobre fundo escuro com objeto 3D azul" loading="lazy">
+            <img src="assets/img/secao-site.webp" alt="Seção de site: título, botão e quatro blocos de benefícios sobre fundo escuro com objeto 3D azul" loading="lazy">
           </div>
           <div class="card__caption"><h3>Seção de site</h3><span>TECNOLOGIA</span></div>
         </article>
         <article class="card" data-reveal style="--r:1.567;--d:.08s">
           <div class="card__media">
-            <img src="assets/portfolio/landing-servicos.webp" alt="Landing page de limpeza de lixeiras, com título, botão e fotos do serviço" loading="lazy">
+            <img src="assets/img/landing-servicos.webp" alt="Landing page de limpeza de lixeiras, com título, botão e fotos do serviço" loading="lazy">
           </div>
           <div class="card__caption"><h3>Landing page</h3><span>SERVIÇOS</span></div>
         </article>
         <article class="card" data-reveal style="--r:1.149;--d:.16s">
           <div class="card__media card__media--dark">
-            <img src="assets/portfolio/brand-design.webp" alt="Identidade visual: medalha com polvo verde em peças de fundo escuro e claro" loading="lazy">
+            <img src="assets/img/brand-design.webp" alt="Identidade visual: medalha com polvo verde em peças de fundo escuro e claro" loading="lazy">
           </div>
           <div class="card__caption"><h3>Brand design</h3><span>GAMES</span></div>
         </article>
@@ -204,15 +236,15 @@
       <div class="work__row">
         <article class="card" data-reveal style="--r:1.9">
           <div class="card__media card__media--reels">
-            <div class="reel"><video src="assets/portfolio/reels-1.mp4" poster="assets/portfolio/posters/reels-1.jpg" muted loop playsinline preload="none" data-autoplay></video></div>
-            <div class="reel"><video src="assets/portfolio/reels-2.mp4" poster="assets/portfolio/posters/reels-2.jpg" muted loop playsinline preload="none" data-autoplay></video></div>
-            <div class="reel"><video src="assets/portfolio/reels-3.mp4" poster="assets/portfolio/posters/reels-3.jpg" muted loop playsinline preload="none" data-autoplay></video></div>
+            <div class="reel"><video src="assets/portfolio/reels-1.mp4" poster="assets/img/poster-reels-1.webp" muted loop playsinline preload="none" data-autoplay><track kind="captions" src="assets/portfolio/sem-audio.vtt" srclang="pt" label="Sem áudio"></video></div>
+            <div class="reel"><video src="assets/portfolio/reels-2.mp4" poster="assets/img/poster-reels-2.webp" muted loop playsinline preload="none" data-autoplay><track kind="captions" src="assets/portfolio/sem-audio.vtt" srclang="pt" label="Sem áudio"></video></div>
+            <div class="reel"><video src="assets/portfolio/reels-3.mp4" poster="assets/img/poster-reels-3.webp" muted loop playsinline preload="none" data-autoplay><track kind="captions" src="assets/portfolio/sem-audio.vtt" srclang="pt" label="Sem áudio"></video></div>
           </div>
           <div class="card__caption"><h3>Série de reels</h3><span>GAMES / 3 VÍDEOS</span></div>
         </article>
         <article class="card" data-reveal style="--r:1.778;--d:.08s">
           <div class="card__media card__media--dark">
-            <video src="assets/portfolio/apresentacao-conteudo.mp4" poster="assets/portfolio/posters/apresentacao-conteudo.jpg" muted loop playsinline preload="none" data-autoplay></video>
+            <video src="assets/portfolio/apresentacao-conteudo.mp4" poster="assets/img/poster-apresentacao-conteudo.webp" muted loop playsinline preload="none" data-autoplay><track kind="captions" src="assets/portfolio/sem-audio.vtt" srclang="pt" label="Sem áudio"></video>
           </div>
           <div class="card__caption"><h3>Apresentação de conteúdo</h3><span>GAMES</span></div>
         </article>
@@ -221,19 +253,19 @@
       <div class="work__row">
         <article class="card" data-reveal style="--r:.695">
           <div class="card__media">
-            <img src="assets/portfolio/landing-imobiliario.png" alt="Landing page de avaliação de imóveis, com busca, benefícios e números" loading="lazy">
+            <img src="assets/img/landing-imobiliario.webp" alt="Landing page de avaliação de imóveis, com busca, benefícios e números" loading="lazy">
           </div>
           <div class="card__caption"><h3>Landing page</h3><span>IMOBILIÁRIO</span></div>
         </article>
         <article class="card" data-reveal style="--r:.778;--d:.08s">
           <div class="card__media card__media--dark">
-            <img src="assets/portfolio/pagina-sobre.webp" alt="Página sobre de um estúdio criativo, com símbolo vermelho, projetos e missão, visão e valores" loading="lazy">
+            <img src="assets/img/pagina-sobre.webp" alt="Página sobre de um estúdio criativo, com símbolo vermelho, projetos e missão, visão e valores" loading="lazy">
           </div>
           <div class="card__caption"><h3>Página sobre</h3><span>ESTÚDIO CRIATIVO</span></div>
         </article>
         <article class="card" data-reveal style="--r:1.333;--d:.16s">
           <div class="card__media">
-            <video src="assets/portfolio/landing-musica.mp4" poster="assets/portfolio/posters/landing-musica.jpg" muted loop playsinline preload="none" data-autoplay></video>
+            <video src="assets/portfolio/landing-musica.mp4" poster="assets/img/poster-landing-musica.webp" muted loop playsinline preload="none" data-autoplay><track kind="captions" src="assets/portfolio/sem-audio.vtt" srclang="pt" label="Sem áudio"></video>
           </div>
           <div class="card__caption"><h3>Landing page</h3><span>MÚSICA</span></div>
         </article>
@@ -262,7 +294,7 @@
           <span class="ccard__label">ENVIAR E-MAIL</span>
         </div>
       </a>
-      <a class="ccard" href="https://wa.me/554398735248?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20l%C3%B6wna%20e%20quero%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener" data-reveal style="--d:.1s" data-dots="255,64,38" data-focal="0.95,0.05">
+      <a class="ccard" href="https://wa.me/554398735248?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20l%C3%B6wna%20e%20quero%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener noreferrer" data-reveal style="--d:.1s" data-dots="255,64,38" data-focal="0.95,0.05">
         <canvas class="ccard__dots" aria-hidden="true"></canvas>
         <div class="ccard__top">
           <img src="assets/icon-whatsapp.svg" alt="" width="22" height="22">
@@ -288,12 +320,12 @@
         </nav>
         <div class="footer__info">
           <div class="footer__social">
-            <a class="icon-btn" href="https://www.instagram.com/lownastudio/" target="_blank" rel="noopener" aria-label="Instagram"><img src="assets/icon-instagram.svg" alt="" width="18" height="18"></a>
-            <a class="icon-btn" href="https://wa.me/554398735248?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20l%C3%B6wna%20e%20quero%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener" aria-label="WhatsApp"><img src="assets/icon-whatsapp.svg" alt="" width="18" height="18"></a>
+            <a class="icon-btn" href="https://www.instagram.com/lownastudio/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img src="assets/icon-instagram.svg" alt="" width="18" height="18"></a>
+            <a class="icon-btn" href="https://wa.me/554398735248?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20l%C3%B6wna%20e%20quero%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><img src="assets/icon-whatsapp.svg" alt="" width="18" height="18"></a>
             <a class="icon-btn" href="mailto:studio.lowna@gmail.com" aria-label="E-mail"><img src="assets/icon-mail.svg" alt="" width="18" height="18"></a>
           </div>
           <a href="mailto:studio.lowna@gmail.com">studio.lowna@gmail.com</a>
-          <a href="https://wa.me/554398735248?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20l%C3%B6wna%20e%20quero%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener">(43) 9873-5248</a>
+          <a href="https://wa.me/554398735248?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20l%C3%B6wna%20e%20quero%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener noreferrer">(43) 9873-5248</a>
         </div>
       </div>
       <div class="footer__word" aria-hidden="true"><span>löwna</span></div>

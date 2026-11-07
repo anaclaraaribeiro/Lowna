@@ -9,7 +9,7 @@
   $$('.wm > span').forEach((el, i) => el.style.setProperty('--i', i));
   const start = () => requestAnimationFrame(() => document.body.classList.add('is-loaded'));
   (document.fonts ? document.fonts.ready : Promise.resolve()).then(start);
-  setTimeout(start, 2500);
+  setTimeout(start, 1200); // as fontes têm preload; não segurar a entrada se demorarem
 
   /* ---------- Shaders do Figma ---------- */
   const shadersReady = window.LownaShaders ? window.LownaShaders.mountAll() : Promise.resolve([]);
