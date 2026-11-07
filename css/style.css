@@ -337,7 +337,7 @@ html.js body:not(.is-loaded) .showreel__card { clip-path: inset(100% 0 0 0); }
 .svc sup { font-size: 16px; font-weight: 400; line-height: normal; top: 0; vertical-align: baseline; color: #6f7187; }
 .svc.is-active { color: var(--space-blue); opacity: 1; }
 .svc.is-active .svc__label { font-weight: 300; }
-.svc.is-active sup { color: inherit; opacity: .6; }
+.svc.is-active sup { color: inherit; opacity: .75; }
 
 .services__image {
   position: absolute;
