@@ -32,17 +32,38 @@
 <body class="case">
 
   <!-- ===================== TOPO ===================== -->
-  <header class="cs-hero">
+  <section class="cs-hero" aria-label="Estudo de caso">
     <img class="cs-hero__bg" src="../../assets/grad2-hero.svg" alt="" width="1440" height="1901">
     <div class="cs-hero__scrim" aria-hidden="true"></div>
 
-    <nav class="cs-bar" aria-label="Principal">
-      <a class="nav__logo" href="../../">löwna</a>
-      <a class="btn btn--ghost" href="../../#trabalho">
-        <span class="btn__icon btn__icon--back"><img src="../../assets/arrow-white.svg" alt="" width="14" height="14"></span>
-        <span>VOLTAR AO PORTFÓLIO</span>
-      </a>
-    </nav>
+    <div class="hero__frame cs-frame">
+      <span class="hero__outline" aria-hidden="true"></span>
+      <span class="tick tick--tl" aria-hidden="true"></span>
+      <span class="tick tick--tr" aria-hidden="true"></span>
+      <span class="tick tick--bl" aria-hidden="true"></span>
+      <span class="tick tick--br" aria-hidden="true"></span>
+
+      <header class="nav" id="nav">
+        <a class="nav__logo" href="../../">löwna</a>
+        <ul class="nav__links" id="nav-links">
+          <li><a href="../../#trabalho">TRABALHO</a></li>
+          <li><a href="../../#servicos">SERVIÇOS</a></li>
+          <li><a href="../../#sobre">SOBRE</a></li>
+          <li><a href="../../#contato">CONTATO</a></li>
+        </ul>
+        <a class="btn btn--light nav__cta" href="#contato-cta">
+          <span>INICIAR PROJETO</span>
+          <span class="btn__icon"><img src="../../assets/arrow-dark.svg" alt="" width="14" height="14"><img src="../../assets/arrow-dark.svg" alt="" width="14" height="14"></span>
+        </a>
+        <button class="nav__toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+          <span class="nav__toggle-bar"></span><span class="nav__toggle-bar"></span>
+          <span class="sr-only">Abrir menu</span>
+        </button>
+      </header>
+      <span class="hero__navline" aria-hidden="true"></span>
+
+      <div class="cs-in">
+    <a class="cs-back" href="../../#trabalho"><span class="btn__icon btn__icon--back"><img src="../../assets/arrow-white.svg" alt="" width="12" height="12"></span>PORTFÓLIO</a>
 
     <div class="cs-intro">
       <div class="cs-intro__text">
@@ -65,9 +86,11 @@
     </div>
 
     <div class="cs-cover" data-reveal style="--d:.1s">
-      <video class="shot-vid cs-cover__vid" src="../../assets/cases/gabriel-filemon/video/gf-tour.mp4" poster="../../assets/cases/gabriel-filemon/d-hero.webp" muted loop playsinline autoplay preload="metadata" width="1280" height="800" aria-label="Site Gabriel Filemon Advocacia: entrada da hero e rolagem pelas seções"></video>
+        <video class="shot-vid cs-cover__vid" src="../../assets/cases/gabriel-filemon/video/gf-tour.mp4" poster="../../assets/cases/gabriel-filemon/d-hero.webp" muted loop playsinline autoplay preload="metadata" width="1280" height="800" aria-label="Site Gabriel Filemon Advocacia: entrada da hero e rolagem pelas seções"></video>
     </div>
-  </header>
+      </div>
+    </div>
+  </section>
 
   <main>
     <div class="cs-layout">
@@ -110,37 +133,45 @@
               </div>
               <div class="bb__grid">
                 <div class="bt bt--word">
-                  <svg viewBox="-2 -2 186 104" role="img" aria-label="Monograma GF"><path d="M84.1 21.4A44.5 44.5 0 1 0 94.5 50H57M120 0V100M114.5 5.5H162M114.5 48H154" fill="none" stroke="#0B1C3B" stroke-width="11"/><rect x="170" y="89" width="11" height="11" rx="1.5" fill="#C9A84C"/></svg>
+                  <svg viewBox="-2 -2 186 104" role="img" aria-label="Monograma GF"><path class="draw" pathLength="1" d="M84.1 21.4A44.5 44.5 0 1 0 94.5 50H57M120 0V100M114.5 5.5H162M114.5 48H154" fill="none" stroke="currentColor" stroke-width="11"/><rect class="dot" x="170" y="89" width="11" height="11" rx="1.5" fill="#C9A84C"/></svg>
                   <div>
                     <div class="bt__spaced"><span>G</span><span>A</span><span>B</span><span>R</span><span>I</span><span>E</span><span>L</span><span>&nbsp;</span><span>F</span><span>I</span><span>L</span><span>E</span><span>M</span><span>O</span><span>N</span></div>
                     <div class="bt__spaced">ADVOCACIA</div>
                   </div>
                 </div>
                 <div class="bt bt--colors">
-                  <div style="background:#0B1C3B;color:#F7F4EE">RGB 11 28 59<br>CMYK 81 53 0 77<br>#0B1C3B</div>
-                  <div style="background:#F7F4EE;color:#0B1C3B">RGB 247 244 238<br>CMYK 0 1 4 3<br>#F7F4EE</div>
-                  <div style="background:#C9A84C;color:#0B1C3B">RGB 201 168 76<br>CMYK 0 16 62 21<br>#C9A84C</div>
+                  <div style="background:#0B1C3B;color:#F7F4EE"><span>RGB 11 28 59<br>CMYK 81 53 0 77<br>#0B1C3B</span><span class="tints" aria-hidden="true"><i style="background:#22335A"></i><i style="background:#3B4C73"></i><i style="background:#6B7894"></i><i style="background:#A7AFC0"></i></span></div>
+                  <div style="background:#F7F4EE;color:#0B1C3B"><span>RGB 247 244 238<br>CMYK 0 1 4 3<br>#F7F4EE</span><span class="tints" aria-hidden="true"><i style="background:#E9E4DA"></i><i style="background:#DBD4C6"></i><i style="background:#C9C0AF"></i><i style="background:#B5AB98"></i></span></div>
+                  <div style="background:#C9A84C;color:#0B1C3B"><span>RGB 201 168 76<br>CMYK 0 16 62 21<br>#C9A84C</span><span class="tints" aria-hidden="true"><i style="background:#D4B86A"></i><i style="background:#DEC88A"></i><i style="background:#E8D8AB"></i><i style="background:#F2E8CD"></i></span></div>
                 </div>
                 <div class="bt bt--icon">
-                  <svg viewBox="-2 -2 186 104" role="img" aria-label="Ícone GF"><path d="M84.1 21.4A44.5 44.5 0 1 0 94.5 50H57M120 0V100M114.5 5.5H162M114.5 48H154" fill="none" stroke="#F7F4EE" stroke-width="11"/><rect x="170" y="89" width="11" height="11" rx="1.5" fill="#C9A84C"/></svg>
+                  <svg viewBox="-2 -2 186 104" role="img" aria-label="Ícone GF"><path class="draw" pathLength="1" d="M84.1 21.4A44.5 44.5 0 1 0 94.5 50H57M120 0V100M114.5 5.5H162M114.5 48H154" fill="none" stroke="currentColor" stroke-width="11"/><rect class="dot" x="170" y="89" width="11" height="11" rx="1.5" fill="#C9A84C"/></svg>
+                  <span class="bt__tag">ÍCONE</span>
                 </div>
-                <div class="bt bt--seal">
-                  <div class="bt__ring">
-                    <svg viewBox="-2 -2 186 104" aria-hidden="true"><path d="M84.1 21.4A44.5 44.5 0 1 0 94.5 50H57M120 0V100M114.5 5.5H162M114.5 48H154" fill="none" stroke="#F7F4EE" stroke-width="9"/><rect x="170" y="89" width="11" height="11" rx="1.5" fill="#C9A84C"/></svg>
-                    <span>DIREITO MÉDICO</span>
+                <div class="bt bt--ui">
+                  <span class="bt__tag">INTERFACE</span>
+                  <div class="uis" aria-label="Cards de situações do site">
+                    <div class="ui"><div class="ui__top"><i class="ui__ic"></i><span><b></b>DEFESA CRM/CFM</span></div><p class="ui__t">Notificação do CRM</p><p class="ui__d">Sindicâncias pedem resposta técnica e no prazo.</p></div>
+                    <div class="ui"><div class="ui__top"><i class="ui__ic"></i><span><b></b>RESPONSABILIDADE CIVIL</span></div><p class="ui__t">Processo por erro médico</p><p class="ui__d">Análise do prontuário, da conduta e da perícia.</p></div>
+                    <div class="ui"><div class="ui__top"><i class="ui__ic"></i><span><b></b>CONSULTORIA PREVENTIVA</span></div><p class="ui__t">Abertura de clínica</p><p class="ui__d">Contratos organizados desde o início.</p></div>
                   </div>
                 </div>
                 <div class="bt bt--type">
-                  <span class="aa" aria-hidden="true">Aa</span>
-                  <span class="meta"><b>Inter Tight</b>ABCDEFGHIJ<br>KLMNOPQRS<br>TUVWXYZ<br>0123456789</span>
+                  <div class="ty ty--1"><span class="aa" aria-hidden="true">Aa</span><span class="meta"><b>Inter Tight</b>TÍTULOS</span></div>
+                  <div class="ty ty--2"><span class="aa" aria-hidden="true">Aa</span><span class="meta"><b>Geist</b>TEXTOS</span></div>
+                  <div class="ty ty--3"><span class="aa" aria-hidden="true">Aa</span><span class="meta"><b>Geist Mono</b>RÓTULOS</span></div>
                 </div>
                 <div class="bt bt--photo">
-                  <img src="../../assets/cases/gabriel-filemon/foto.jpg" alt="Retrato em luz quente usado na hero do site" width="800" height="1200" loading="lazy">
-                  <span>FOTOGRAFIA</span>
+                  <img class="ph ph--1" src="../../assets/cases/gabriel-filemon/foto.jpg" alt="Retrato em luz quente usado na hero do site" width="800" height="1200" loading="lazy">
+                  <img class="ph ph--2" src="../../assets/cases/gabriel-filemon/video/gf-mobile.jpg" alt="Hero do site no celular" width="390" height="844" loading="lazy">
+                  <span class="bt__tag bt__tag--light">FOTOGRAFIA E APLICAÇÃO</span>
                 </div>
-                <div class="bt bt--body">
-                  <p>Geist para textos longos, com leitura confortável em qualquer tela.</p>
-                  <small>GEIST MONO / 01 // RÓTULOS</small>
+                <div class="bt bt--btns">
+                  <span class="bt__tag">BOTÕES</span>
+                  <div class="pills">
+                    <span class="pill pill--gold">Agendar consulta <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span>
+                    <span class="pill pill--line">Áreas de atuação <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M4 9l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -174,8 +205,8 @@
               </figure>
             </div>
             <figure class="cs-figure" data-reveal>
-              <img class="shot-img" src="../../assets/cases/gabriel-filemon/d-outras.webp" alt="Seção Atuação complementar, além da saúde, com quatro áreas ilustradas em traço fino" width="1440" height="1065" loading="lazy">
-              <figcaption class="cs-caption">As outras áreas aparecem no fim, com ilustrações em traço fino, como atuação complementar.</figcaption>
+              <video class="shot-vid" src="../../assets/cases/gabriel-filemon/video/gf-outras.mp4" poster="../../assets/cases/gabriel-filemon/video/gf-outras.jpg" muted loop playsinline preload="none" data-autoplay width="1280" height="800" aria-label="Seção de outras áreas: as ilustrações em traço fino se desenham na tela"></video>
+              <figcaption class="cs-caption">As outras áreas aparecem no fim, como atuação complementar. As ilustrações em traço fino se desenham quando a seção entra na tela.</figcaption>
             </figure>
           </div>
         </section>
@@ -218,7 +249,7 @@
     </div>
 
     <!-- ===================== CHAMADA ===================== -->
-    <section class="cs-cta" aria-labelledby="cta-titulo">
+    <section class="cs-cta" id="contato-cta" aria-labelledby="cta-titulo">
       <img class="cs-cta__bg" src="../../assets/img/about-bg.webp" alt="" width="1920" height="1454" loading="lazy">
       <div class="cs-cta__scrim" aria-hidden="true"></div>
       <span class="cs-cta__frame" aria-hidden="true"><span class="tick tick--tl"></span><span class="tick tick--tr"></span><span class="tick tick--bl"></span><span class="tick tick--br"></span></span>
@@ -245,11 +276,32 @@
     </section>
   </main>
 
-  <footer class="cs-foot">
-    <a class="nav__logo" href="../../">löwna</a>
-    <span>© 2026 Löwna Studio. Sites, reels e social media.</span>
+  <footer class="footer">
+    <div class="footer__card" id="footer-card">
+      <div class="footer__top">
+        <nav class="footer__nav" aria-label="Rodapé">
+          <a href="../../#trabalho">Trabalho</a>
+          <a href="../../#servicos">Serviços</a>
+          <a href="../../#servicos">Processo</a>
+          <a href="../../#sobre">Sobre</a>
+        </nav>
+        <div class="footer__info">
+          <div class="footer__social">
+            <a class="icon-btn" href="https://www.instagram.com/lownastudio/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img src="../../assets/icon-instagram.svg" alt="" width="18" height="18"></a>
+            <a class="icon-btn" href="https://wa.me/554398735248?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20l%C3%B6wna%20e%20quero%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><img src="../../assets/icon-whatsapp.svg" alt="" width="18" height="18"></a>
+            <a class="icon-btn" href="mailto:studio.lowna@gmail.com" aria-label="E-mail"><img src="../../assets/icon-mail.svg" alt="" width="18" height="18"></a>
+          </div>
+          <a href="mailto:studio.lowna@gmail.com">studio.lowna@gmail.com</a>
+          <a href="https://wa.me/554398735248?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20l%C3%B6wna%20e%20quero%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener noreferrer">(43) 9873-5248</a>
+        </div>
+      </div>
+      <div class="footer__word" aria-hidden="true"><span>löwna</span></div>
+      <div class="footer__base">
+        <span>© 2026 löwna studio</span>
+        <span class="footer__tag">SITES / REELS / SOCIAL MEDIA</span>
+      </div>
+    </div>
   </footer>
-
   <script src="../../js/case.js" defer></script>
 </body>
 </html>

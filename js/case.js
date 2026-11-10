@@ -32,6 +32,59 @@
   }
   if (reduceMotion) document.querySelectorAll('video[autoplay]').forEach((v) => { v.removeAttribute('autoplay'); v.pause(); });
 
+  /* ---------- quadro de marca: animações só enquanto ele está na tela ---------- */
+  const board = document.querySelector('.bb');
+  if (board && 'IntersectionObserver' in window) {
+    new IntersectionObserver(([entry]) => board.classList.toggle('is-live', entry.isIntersecting), { threshold: 0.15 }).observe(board);
+  }
+
+  /* ---------- navbar igual à da home: gruda no topo depois da capa, menu no celular ---------- */
+  const nav = document.getElementById('nav');
+  const hero = document.querySelector('.cs-hero');
+  const toggle = document.getElementById('nav-toggle');
+  const navLinks = document.getElementById('nav-links');
+  if (toggle && navLinks) {
+    toggle.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-expanded') !== 'true';
+      toggle.setAttribute('aria-expanded', String(open));
+      navLinks.classList.toggle('is-open', open);
+    });
+    navLinks.addEventListener('click', (e) => {
+      if (!e.target.closest('a')) return;
+      toggle.setAttribute('aria-expanded', 'false');
+      navLinks.classList.remove('is-open');
+    });
+  }
+
+  /* ---------- rodapé igual ao da home: a palavra sobe com a rolagem e o brilho segue o mouse ---------- */
+  const footCard = document.getElementById('footer-card');
+  const footWord = document.querySelector('.footer__word span');
+  if (footCard && matchMedia('(pointer: fine)').matches && !reduceMotion) {
+    footCard.addEventListener('pointermove', (e) => {
+      const r = footCard.getBoundingClientRect();
+      footCard.style.setProperty('--mx', `${((e.clientX - r.left) / r.width) * 100}%`);
+    });
+  }
+  let stuck = false;
+  function onFrame() {
+    if (nav && hero) {
+      const should = scrollY > hero.offsetHeight * 0.4;
+      if (should !== stuck) { stuck = should; nav.classList.toggle('is-stuck', stuck); }
+    }
+    if (footCard && footWord) {
+      const f = footCard.getBoundingClientRect();
+      const fp = Math.min(1, Math.max(0, (innerHeight - f.top) / f.height));
+      footWord.style.setProperty('--fw-y', `${((1 - fp) * 70).toFixed(2)}%`);
+    }
+  }
+  let frameQueued = false;
+  addEventListener('scroll', () => {
+    if (frameQueued) return;
+    frameQueued = true;
+    requestAnimationFrame(() => { onFrame(); frameQueued = false; });
+  }, { passive: true });
+  onFrame();
+
   /* ---------- índice ---------- */
   const links = [...document.querySelectorAll('.cs-toc a')];
   const sections = links.map((a) => document.querySelector(a.getAttribute('href'))).filter(Boolean);
