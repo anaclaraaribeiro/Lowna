@@ -777,3 +777,9 @@ html.js [data-reveal="line"]:not(.is-in) { opacity: 1; transform: scaleX(0); }
     opacity: 1 !important; transform: none !important; clip-path: none !important;
   }
 }
+
+/* Celular: o desfoque de fundo (backdrop-filter) é refeito a cada quadro da rolagem e trava em aparelhos mais simples */
+@media (max-width: 860px) {
+  * { -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }
+  .nav { background: rgba(10, 10, 14, .82); }
+}

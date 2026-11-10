@@ -12,7 +12,11 @@
   setTimeout(start, 1200); // as fontes têm preload; não segurar a entrada se demorarem
 
   /* ---------- Shaders do Figma ---------- */
-  const shadersReady = window.LownaShaders ? window.LownaShaders.mountAll() : Promise.resolve([]);
+  // no celular o gradiente fica parado (imagem de fallback): o shader em tempo real pesa na rolagem
+  const lite = window.matchMedia('(max-width: 860px), (pointer: coarse)').matches;
+  const shadersReady = window.LownaShaders && !lite ? window.LownaShaders.mountAll() : Promise.resolve([]);
+  // vídeos com versão menor (data-src-sm) usam ela em telas pequenas
+  if (window.matchMedia('(max-width: 860px)').matches) $$('video[data-src-sm]').forEach((v) => { v.src = v.dataset.srcSm; });
 
   /* ---------- Revelação no scroll ---------- */
   const revealTargets = $$('[data-reveal], .about__manifesto');

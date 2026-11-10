@@ -20,6 +20,7 @@
   }
 
   /* ---------- vídeos: tocam só quando estão na tela ---------- */
+  if (matchMedia('(max-width: 860px)').matches) document.querySelectorAll('video[data-src-sm]').forEach((v) => { v.src = v.dataset.srcSm; });
   const videos = document.querySelectorAll('video[data-autoplay]');
   if ('IntersectionObserver' in window && !reduceMotion) {
     const vio = new IntersectionObserver((entries) => {
