@@ -235,29 +235,6 @@ a:hover .btn__icon--back img:first-child { transform: rotate(-135deg) translateY
 .mob__list .n { grid-row: span 2; font-size: 11px; font-weight: 600; color: #6f9bff; padding-top: 4px; }
 .mob__list b { font-weight: 600; font-size: 16px; }
 .mob__list p { font-size: 14px; line-height: 1.55; opacity: .7; }
-/* ---------- chamada final ---------- */
-.cs-cta {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  margin: 0 var(--pad-x) var(--pad-x);
-  padding: clamp(72px, 10vw, 140px) clamp(24px, 6vw, 96px);
-  color: var(--shuttle-white);
-  background: #08080b;
-}
-.cs-cta__bg { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; }
-.cs-cta__scrim { position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(8, 8, 11, .7), rgba(8, 8, 11, .15)); }
-.cs-cta__frame { position: absolute; inset: 18px; border: 1px solid rgba(255, 255, 255, .3); pointer-events: none; }
-.cs-cta__in { position: relative; display: flex; flex-direction: column; gap: 28px; max-width: 980px; }
-.cs-cta h2 { font-weight: 300; font-size: clamp(46px, 7.4vw, 118px); line-height: .95; letter-spacing: -.045em; }
-.cs-cta h2 strong { font-weight: 700; }
-.cs-cta p { max-width: 520px; font-size: 18px; line-height: 1.55; opacity: .82; }
-.cs-cta .cs-actions { gap: 14px; margin-top: 6px; }
-.btn--lg { padding: 20px 22px 20px 28px; font-size: 13px; }
-.cs-cta__note { display: flex; flex-wrap: wrap; gap: 8px 28px; margin-top: 18px; padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, .22); font-size: 14px; }
-.cs-cta__note a { opacity: .8; transition: opacity .3s; }
-.cs-cta__note a:hover { opacity: 1; }
-
 .cs-foot { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 28px var(--pad-x); background: var(--ink); color: rgba(255, 255, 255, .6); font-size: 13px; }
 .cs-foot .nav__logo { color: var(--shuttle-white); font-size: 24px; }
 
@@ -278,8 +255,6 @@ a:hover .btn__icon--back img:first-child { transform: rotate(-135deg) translateY
   .mob .phone { width: min(78%, 300px); }
   .mob__list { width: 100%; }
   .cs-actions .btn { align-self: stretch; justify-content: center; flex: 1 1 100%; }
-  .cs-cta { margin: 0 0 0; }
-  .cs-cta__frame { inset: 12px; }
   .cs-foot { flex-direction: column; text-align: center; }
 }
 @media (max-width: 600px) {

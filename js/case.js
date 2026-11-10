@@ -85,6 +85,67 @@
   }, { passive: true });
   onFrame();
 
+  /* ---------- contato igual ao da home: grade de pontos animada nos cards ---------- */
+  document.querySelectorAll('.ccard').forEach((card) => {
+    const canvas = card.querySelector('.ccard__dots');
+    const ctx = canvas.getContext('2d');
+    const [r, g, b] = card.dataset.dots.split(',').map(Number);
+    const [fx, fy] = card.dataset.focal.split(',').map(Number);
+    const mouse = { x: -9999, y: -9999, k: 0, active: false };
+    let w = 0, h = 0, dpr = 1, visible = false, raf = 0;
+
+    function draw(t) {
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.clearRect(0, 0, w, h);
+      const sp = 15;
+      const maxD = Math.hypot(w, h) * 0.75;
+      const time = reduceMotion ? 0 : t / 1000;
+      for (let x = sp / 2; x < w; x += sp) {
+        for (let y = sp / 2; y < h; y += sp) {
+          const d = Math.hypot(x - fx * w, y - fy * h) / maxD;
+          let k = Math.max(0, 1 - d);
+          k *= 0.88 + 0.12 * Math.sin(time * 1.6 - d * 9);
+          const md = Math.hypot(x - mouse.x, y - mouse.y);
+          if (md < 140) k += (1 - md / 140) * 0.7 * mouse.k;
+          if (k < 0.08) continue;
+          k = Math.min(k, 1.2);
+          ctx.fillStyle = `rgba(${r},${g},${b},${Math.min(1, 0.15 + k * 0.95)})`;
+          ctx.beginPath();
+          ctx.arc(x, y, 0.8 + 1.8 * Math.min(k, 1), 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+    }
+    function resize() {
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      w = card.clientWidth;
+      h = card.clientHeight;
+      canvas.width = Math.round(w * dpr);
+      canvas.height = Math.round(h * dpr);
+      draw(performance.now());
+    }
+    function loop(t) {
+      mouse.k += ((mouse.active ? 1 : 0) - mouse.k) * (mouse.active ? 0.12 : 0.08);
+      draw(t);
+      raf = visible ? requestAnimationFrame(loop) : 0;
+    }
+    if (!reduceMotion && 'IntersectionObserver' in window) {
+      new IntersectionObserver(([entry]) => {
+        visible = entry.isIntersecting;
+        if (visible && !raf) raf = requestAnimationFrame(loop);
+      }).observe(card);
+      card.addEventListener('pointermove', (e) => {
+        const rect = card.getBoundingClientRect();
+        mouse.x = e.clientX - rect.left;
+        mouse.y = e.clientY - rect.top;
+        mouse.active = true;
+      });
+      card.addEventListener('pointerleave', () => { mouse.active = false; });
+    }
+    if ('ResizeObserver' in window) new ResizeObserver(resize).observe(card);
+    else resize();
+  });
+
   /* ---------- índice ---------- */
   const links = [...document.querySelectorAll('.cs-toc a')];
   const sections = links.map((a) => document.querySelector(a.getAttribute('href'))).filter(Boolean);
