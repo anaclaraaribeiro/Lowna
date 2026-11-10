@@ -19,6 +19,19 @@
     targets.forEach((el) => io.observe(el));
   }
 
+  /* ---------- vídeos: tocam só quando estão na tela ---------- */
+  const videos = document.querySelectorAll('video[data-autoplay]');
+  if ('IntersectionObserver' in window && !reduceMotion) {
+    const vio = new IntersectionObserver((entries) => {
+      entries.forEach(({ target, isIntersecting }) => {
+        if (isIntersecting) target.play().catch(() => {});
+        else target.pause();
+      });
+    }, { threshold: 0.3 });
+    videos.forEach((v) => vio.observe(v));
+  }
+  if (reduceMotion) document.querySelectorAll('video[autoplay]').forEach((v) => { v.removeAttribute('autoplay'); v.pause(); });
+
   /* ---------- índice ---------- */
   const links = [...document.querySelectorAll('.cs-toc a')];
   const sections = links.map((a) => document.querySelector(a.getAttribute('href'))).filter(Boolean);
