@@ -68,13 +68,13 @@ canvas.dots { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 
 .stage__cap { display: flex; flex-direction: column; justify-content: space-between; gap: 28px; }
 .stage__main { display: flex; flex-direction: column; align-items: flex-start; gap: 18px; }
 .stage__n { font-size: 12px; letter-spacing: 1px; opacity: .6; font-variant-numeric: tabular-nums; }
-.stage__cap h3 { font-weight: 300; font-size: clamp(40px, 4.4vw, 68px); line-height: .95; letter-spacing: -.04em; text-transform: uppercase; text-wrap: balance; }
+.stage__cap h3 { font-weight: 300; font-size: clamp(40px, 4.4vw, 68px); line-height: 1.12; letter-spacing: 0; text-transform: uppercase; text-wrap: balance; }
 .stage__main p { max-width: 440px; font-size: 18px; line-height: 1.5; opacity: .9; }
 .stage__tag { padding: 7px 11px; background: var(--shuttle-white); color: var(--space-blue); font-weight: 600; font-size: 10.5px; letter-spacing: 1.1px; }
 .stage__for { display: flex; flex-direction: column; gap: 10px; max-width: 440px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, .28); }
 .stage__for b { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: 11px; letter-spacing: 1.3px; opacity: .75; }
 .stage__for b::before { content: ""; width: 7px; height: 7px; background: var(--horizon-red); }
-.stage__for span { font-weight: 400; font-size: clamp(20px, 1.8vw, 26px); line-height: 1.25; letter-spacing: -.015em; }
+.stage__for span { font-weight: 400; font-size: clamp(20px, 1.8vw, 26px); line-height: 1.3; letter-spacing: 0; }
 .stage__panel.is-on .stage__main > *, .stage__panel.is-on .stage__for { animation: stIn .7s var(--ease-out) both; }
 .stage__panel.is-on .stage__main > :nth-child(2) { animation-delay: .05s; }
 .stage__panel.is-on .stage__main > :nth-child(3) { animation-delay: .1s; }
