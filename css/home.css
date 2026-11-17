@@ -23,8 +23,8 @@ canvas.dots { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 
 .why .sec-head__intro { opacity: .72; }
 .why .sec-head { margin-bottom: 44px; }
 .why__grid { position: relative; max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr) 150px minmax(0, 1fr); grid-template-rows: auto 150px auto; gap: 12px; }
-.why__card { position: relative; isolation: isolate; overflow: hidden; display: flex; flex-direction: column; gap: 10px; padding: 24px 28px 26px; background: rgba(8, 8, 10, .42); border: 1px solid rgba(255, 255, 255, .12); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); cursor: default; transition: border-color .5s, background .5s; }
-.why__card.is-on { border-color: rgba(255, 255, 255, .42); background: rgba(8, 8, 10, .6); }
+.why__card { position: relative; isolation: isolate; overflow: hidden; display: flex; flex-direction: column; gap: 10px; padding: 24px 28px 26px; background: rgba(4, 10, 28, .62); border: 1px solid rgba(255, 255, 255, .12); cursor: default; transition: border-color .5s, background .5s; }
+.why__card.is-on { border-color: rgba(255, 255, 255, .42); background: rgba(4, 10, 28, .72); }
 .why__icon { width: 44px; height: 44px; display: grid; place-items: center; margin-bottom: 14px; background: rgba(255, 255, 255, .08); border: 1px solid rgba(255, 255, 255, .16); color: var(--shuttle-white); transition: background .45s, border-color .45s; }
 .why__icon svg { width: 22px; height: 22px; }
 .why__card.is-on .why__icon { background: var(--flight-blue); border-color: var(--flight-blue); }
@@ -47,7 +47,7 @@ canvas.dots { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 
 .tabs { max-width: 1360px; margin: 0 auto; }
 .tabs__bar { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; border-bottom: 1px solid rgba(1, 32, 63, .14); }
 .tabs__bar::-webkit-scrollbar { display: none; }
-.tabs__tab { position: relative; flex: 1 0 auto; display: flex; align-items: baseline; gap: 8px; padding: 16px 18px 18px; border: 0; background: none; color: var(--space-blue); font: inherit; font-size: 15px; white-space: nowrap; cursor: pointer; opacity: .5; transition: opacity .3s; }
+.tabs__tab { position: relative; flex: 1 0 auto; display: flex; align-items: baseline; gap: 8px; padding: 16px 18px 18px; border: 0; background: none; color: var(--space-blue); font: inherit; font-size: 15px; white-space: nowrap; cursor: pointer; opacity: .65; transition: opacity .3s; }
 .tabs__tab span { font-size: 11px; letter-spacing: .5px; font-variant-numeric: tabular-nums; }
 .tabs__tab:hover { opacity: .85; }
 .tabs__tab.is-on { opacity: 1; font-weight: 600; }
@@ -298,7 +298,7 @@ canvas.dots { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 
 
 /* ---------- 4 · Guarapuava e região: mapa ---------- */
 .local { position: relative; overflow: hidden; isolation: isolate; padding: 80px var(--pad-x) 64px; background: #010c26; color: var(--shuttle-white); }
-.local::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: .5; mix-blend-mode: soft-light; background: url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27240%27 height=%27240%27%3E%3Cfilter id=%27n%27%3E%3CfeTurbulence type=%27fractalNoise%27 baseFrequency=%27.9%27 numOctaves=%272%27 stitchTiles=%27stitch%27/%3E%3CfeColorMatrix values=%271 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 1%27/%3E%3C/filter%3E%3Crect width=%27100%25%27 height=%27100%25%27 filter=%27url(%23n)%27/%3E%3C/svg%3E"); }
+.local::before, .why::before, .stage::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: .5; mix-blend-mode: soft-light; background: url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27240%27 height=%27240%27%3E%3Cfilter id=%27n%27%3E%3CfeTurbulence type=%27fractalNoise%27 baseFrequency=%27.9%27 numOctaves=%272%27 stitchTiles=%27stitch%27/%3E%3CfeColorMatrix values=%271 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 1%27/%3E%3C/filter%3E%3Crect width=%27100%25%27 height=%27100%25%27 filter=%27url(%23n)%27/%3E%3C/svg%3E"); }
 .local .sec-head { margin-bottom: 48px; }
 .map { margin: 0 calc(var(--pad-x) * -1); }
 .map__frame { position: relative; isolation: isolate; width: 88%; max-width: 1600px; margin: 0 auto; aspect-ratio: 2400 / 950; overflow: hidden; -webkit-mask-image: linear-gradient(to right, transparent, #000 13%, #000 87%, transparent), linear-gradient(to bottom, transparent, #000 8%, #000 92%, transparent); -webkit-mask-composite: source-in; mask-image: linear-gradient(to right, transparent, #000 13%, #000 87%, transparent), linear-gradient(to bottom, transparent, #000 8%, #000 92%, transparent); mask-composite: intersect; }
@@ -323,6 +323,9 @@ canvas.dots { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 
 /* os pinos caem em sequência quando o mapa aparece */
 .map__pin { opacity: 0; translate: 0 -14px; transition: opacity .5s calc(var(--i) * 70ms + .2s), translate .7s var(--ease-out) calc(var(--i) * 70ms + .2s); }
 .map.is-in .map__pin, html:not(.js) .map__pin { opacity: 1; translate: 0 0; }
+.map__list { display: none; flex-wrap: wrap; gap: 6px; list-style: none; padding: 0; margin: 4px var(--pad-x) 28px; }
+.map__list li { padding: 5px 9px; border: 1px solid rgba(255, 255, 255, .18); font-size: 12px; }
+.map__list li:first-child { background: var(--horizon-red); border-color: var(--horizon-red); font-weight: 600; }
 .map__facts { position: relative; z-index: 1; margin: 0 max(var(--pad-x), calc((100% - 1360px) / 2)) 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px; padding-top: 26px; border-top: 1px solid rgba(255, 255, 255, .14); }
 .map__facts dt { display: flex; align-items: center; gap: 9px; font-weight: 600; font-size: 11px; letter-spacing: 1.3px; }
 .map__facts dt i { width: 6px; height: 6px; background: var(--horizon-red); }
@@ -357,7 +360,7 @@ canvas.dots { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 
 .faq__list details[open] { background: linear-gradient(90deg, rgba(3, 68, 220, .05), transparent 70%); }
 .faq__list summary { position: relative; display: flex; gap: 22px; align-items: baseline; padding: 26px 64px 26px 16px; cursor: pointer; list-style: none; font-size: clamp(18px, 1.6vw, 22px); letter-spacing: -.01em; }
 .faq__list summary::-webkit-details-marker { display: none; }
-.faq__list summary span { flex: none; font-size: 13px; opacity: .45; font-variant-numeric: tabular-nums; }
+.faq__list summary span { flex: none; font-size: 13px; opacity: .65; font-variant-numeric: tabular-nums; }
 .faq__list details[open] summary span { color: var(--horizon-red); opacity: 1; }
 .faq__list summary::after { content: ""; position: absolute; right: 12px; top: 50%; width: 36px; height: 36px; margin-top: -18px; border: 1px solid rgba(1, 32, 63, .3); background: linear-gradient(currentColor, currentColor) center / 12px 1.5px no-repeat, linear-gradient(currentColor, currentColor) center / 1.5px 12px no-repeat; transition: background-color .3s; }
 .faq__list details[open] summary::after { background: linear-gradient(#fff, #fff) center / 12px 1.5px no-repeat, var(--flight-blue); border-color: var(--flight-blue); }
@@ -399,14 +402,8 @@ canvas.dots { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 
   .tabs__tab { flex: none; padding: 14px 14px 16px; font-size: 14px; }
   .why, .local, .words, .faq { padding-block: 90px; }
   .how { padding-block: 90px; }
-  .how__pin { height: auto; }
-  .how__sticky { position: static; height: auto; display: block; padding-top: 0; overflow: visible; }
-  .how__view { overflow: visible; -webkit-mask-image: none; mask-image: none; }
-  .how__track { transform: none !important; }
-  .how__sticky .sec-head--center { margin-bottom: 40px; }
   .why__grid { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; }
   .why__fill { display: none; }
-  .why__core { order: -1; height: 150px; }
   .why__card { padding: 24px; }
   .why__icon { margin-bottom: 16px; }
   .how__need { padding: 20px; }
@@ -416,9 +413,6 @@ canvas.dots { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 
   .how__dot { grid-column: 1; grid-row: 1; }
   .how__media, .how__step:nth-child(even) .how__media { grid-column: 2; grid-row: 1; justify-self: start; flex-direction: row; padding: 0; }
   .how__body, .how__step:nth-child(even) .how__body { grid-column: 2; grid-row: 2; justify-self: start; text-align: left; padding: 0; }
-  .map__frame { width: 100%; overflow-x: auto; overflow-y: hidden; aspect-ratio: auto; height: 400px; scrollbar-width: none; -webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent), linear-gradient(to bottom, transparent, #000 10%, #000 90%, transparent); mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent), linear-gradient(to bottom, transparent, #000 10%, #000 90%, transparent); }
-  .map__frame::-webkit-scrollbar { display: none; }
-  .map__stage { right: auto; width: 900px; height: 463px; aspect-ratio: auto; }
   .map__facts { grid-template-columns: minmax(0, 1fr); gap: 22px; }
   .words__grid { grid-template-columns: minmax(0, 1fr); }
   .faq__stats dd { font-size: 18px; }
@@ -430,4 +424,27 @@ canvas.dots { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 
   .bento, .bento * { animation: none !important; }
 
   .map__pin { transition: none; opacity: 1; translate: 0 0; }
+}
+
+/* ---------- toque / telas menores: sem seção presa, sem efeitos pesados ---------- */
+@media (max-width: 1024px), (hover: none) {
+  .how { padding-top: 90px; }
+  .how__pin { height: auto; }
+  .how__sticky { position: static; height: auto; display: block; padding-top: 0; overflow: visible; }
+  .how__view { overflow: visible; -webkit-mask-image: none; mask-image: none; }
+  .how__track { transform: none !important; }
+  .how__sticky .sec-head--center { margin-bottom: 40px; }
+  .why::before, .stage::before, .local::before { display: none; }
+  .map__pin span { -webkit-backdrop-filter: none; backdrop-filter: none; background: rgba(1, 12, 38, .92); }
+  .how__step.is-on .how__icon { -webkit-backdrop-filter: none; backdrop-filter: none; }
+}
+@media (max-width: 760px) {
+  .why__core { display: none; }
+  .map__frame { width: 100%; aspect-ratio: 2400 / 1234; }
+  .map__pin span { display: none; }
+  .map__pin--home span { display: flex; padding: 5px 8px; font-size: 11px; }
+  .map__pin--home span small { display: none; }
+  .map__pin svg { width: 14px; height: 18px; }
+  .map__pin--home svg { width: 22px; height: 28px; }
+  .map__list { display: flex; }
 }

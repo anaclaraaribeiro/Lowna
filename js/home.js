@@ -88,7 +88,7 @@
     const bar = track.querySelector('.how__bar');
     let centers = [], cur = -1;
     const measure = () => { centers = steps.map((s) => s.offsetTop + s.offsetHeight / 2); };
-    const small = matchMedia("(max-width: 760px)");
+    const small = matchMedia("(max-width: 1024px), (hover: none)");
     const update = () => {
       if (small.matches) {
         let best = 0, dist = Infinity;
@@ -113,8 +113,25 @@
       steps.forEach((s, k) => { s.classList.toggle('is-on', k === i); s.classList.toggle('is-done', k < i); });
       bar.style.setProperty('--p0', `${Math.max(0, centers[i] - bar.offsetTop - 28)}px`);
     };
+    // um passo por gesto: enquanto a seção está presa, cada rolada leva ao passo seguinte ou anterior
+    const stepTop = (k) => scrollY + pin.getBoundingClientRect().top + (pin.offsetHeight - innerHeight) * (k / (steps.length - 1));
+    let lockUntil = 0, lockStart = 0;
+    addEventListener("wheel", (e) => {
+      if (small.matches || Math.abs(e.deltaY) < 2) return;
+      const r = pin.getBoundingClientRect();
+      if (r.top > 2 || r.bottom < innerHeight - 2) return;
+      const dir = e.deltaY > 0 ? 1 : -1;
+      const now = performance.now();
+      if (now < lockUntil) { e.preventDefault(); if (now - lockStart > 450) lockUntil = now + 180; return; }
+      const at = Math.round(clamp(-r.top / (r.height - innerHeight)) * (steps.length - 1));
+      const next = at + dir;
+      if (next < 0 || next > steps.length - 1) return;
+      e.preventDefault();
+      lockStart = now; lockUntil = now + 650;
+      scrollTo({ top: stepTop(next), behavior: reduce ? "auto" : "smooth" });
+    }, { passive: false });
     measure(); update();
-    addEventListener('scroll', update, { passive: true });
+    addEventListener("scroll", update, { passive: true });
     addEventListener('resize', () => { measure(); cur = -1; update(); });
     addEventListener('load', () => { measure(); cur = -1; update(); });
   }
@@ -125,15 +142,6 @@
     if (!e.target.open) return;
     faq.querySelectorAll('details[open]').forEach((d) => { if (d !== e.target) d.open = false; });
   }, true);
-})();
-
-// mapa no celular: começa com Guarapuava no centro da faixa que rola
-(function () {
-  const frame = document.querySelector('.map__frame');
-  const home = document.querySelector('.map__pin--home');
-  if (!frame || !home || !matchMedia('(max-width: 760px)').matches) return;
-  const go = () => { frame.scrollLeft = home.offsetLeft - frame.clientWidth / 2 + 40; };
-  go(); addEventListener('load', go);
 })();
 
 // Textura de pontos (a mesma dos cards de contato) para qualquer elemento com data-dots="r,g,b".
@@ -187,7 +195,8 @@
       }
     }
   }
-  const loop = (t) => { live.forEach((it) => draw(it, t)); raf = live.size && !reduce ? requestAnimationFrame(loop) : 0; };
+  let last = 0;
+  const loop = (t) => { if (t - last > 32) { last = t; live.forEach((it) => draw(it, t)); } raf = live.size && !reduce ? requestAnimationFrame(loop) : 0; };
   const io = 'IntersectionObserver' in window ? new IntersectionObserver((es) => {
     es.forEach((e) => { const it = items.find((i) => i.el === e.target); if (e.isIntersecting) { size(it); live.add(it); draw(it, performance.now()); } else live.delete(it); });
     if (live.size && !raf && !reduce) raf = requestAnimationFrame(loop);
