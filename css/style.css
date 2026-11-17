@@ -632,20 +632,7 @@ html.js [data-reveal="line"]:not(.is-in) { opacity: 1; transform: scaleX(0); }
   .services__desc { display: none; }
   /* altura do pin + 60svh de rolagem por categoria */
   .services__stack { height: calc(100svh - 76px + 240svh); }
-  /* um ponto de parada no meio de cada fatia: a rolagem do celular não consegue pular categoria */
-  html { scroll-snap-type: y proximity; }
-  .services__snap {
-    display: block;
-    position: absolute;
-    left: 0;
-    width: 1px;
-    height: 1px;
-    top: calc(240svh * (var(--i) + .5) / 4);
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-    scroll-margin-top: 76px;
-    pointer-events: none;
-  }
+  /* sem pontos de parada: o snap obrigatório segurava a rolagem, principalmente subindo */
   .services__pin {
     position: sticky;
     top: 76px;
