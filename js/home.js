@@ -9,27 +9,38 @@
     new IntersectionObserver(([e]) => cb(e.isIntersecting), { threshold }).observe(el);
   };
 
-  /* ---------- por que ter um site: o arco do centro aponta para cada card ---------- */
+  /* ---------- por que ter um site: o arco gira sem parar e acende o card que está apontando ---------- */
   const grid = document.getElementById('why-grid');
   if (grid) {
-    // sentido horário: cima-esquerda, cima-direita, baixo-direita, baixo-esquerda
+    // sentido horário: cima-esquerda, cima-direita, baixo-direita, baixo-esquerda (centros a -45°, 45°, 135°, 225°)
     const cards = ['tl', 'tr', 'br', 'bl'].map((k) => grid.querySelector(`.why__card--${k}`));
     const arc = grid.querySelector('.why__arc');
-    let cur = 0, angle = -45, timer = 0, hold = false;
-    const set = (i) => {
-      const step = ((i - cur) % 4 + 4) % 4; // sempre gira para frente
-      angle += step * 90; cur = i;
-      arc.style.setProperty('--a', `${angle}deg`);
-      cards.forEach((c, k) => c.classList.toggle('is-on', k === i));
+    const SPEED = 360 / 11000; // uma volta a cada 11 s
+    let angle = -22.5, cur = -1, hold = -1, on = false, raf = 0, last = 0;
+    const light = (i) => { if (i === cur) return; cur = i; cards.forEach((c, k) => c.classList.toggle('is-on', k === i)); };
+    // o arco desenhado aponta para -22,5° sem rotação; direção = ângulo - 22,5
+    const pointing = () => ((((angle + 22.5 + 45) % 360) + 360) % 360);
+    const frame = (t) => {
+      const dt = last ? Math.min(64, t - last) : 16; last = t;
+      if (hold >= 0) {
+        // desliza até o card sob o mouse, sempre pelo caminho mais curto
+        const target = hold * 90 - 45 + 22.5;
+        let d = ((target - angle) % 360 + 540) % 360 - 180;
+        angle += d * Math.min(1, dt / 160);
+        light(hold);
+      } else {
+        angle += SPEED * dt;
+        light(Math.floor(pointing() / 90) % 4);
+      }
+      arc.style.setProperty('--a', `${angle.toFixed(2)}deg`);
+      raf = on ? requestAnimationFrame(frame) : 0;
     };
     cards.forEach((c, k) => {
-      c.addEventListener('mouseenter', () => { hold = true; set(k); });
-      c.addEventListener('mouseleave', () => { hold = false; });
+      c.addEventListener('mouseenter', () => { hold = k; });
+      c.addEventListener('mouseleave', () => { hold = -1; });
     });
-    if (!reduce) watch(grid, (on) => {
-      clearInterval(timer);
-      if (on) timer = setInterval(() => { if (!hold) set((cur + 1) % 4); }, 2600);
-    });
+    light(0);
+    if (!reduce) watch(grid, (v) => { on = v; last = 0; if (v && !raf) raf = requestAnimationFrame(frame); }, 0.1);
   }
 
   /* ---------- qual você precisa: abas que trocam sozinhas até a pessoa escolher ---------- */

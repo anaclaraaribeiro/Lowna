@@ -35,7 +35,7 @@ canvas.dots { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 
 .why__core { position: relative; display: grid; place-items: center; border: 1px solid rgba(255, 255, 255, .14); background: radial-gradient(circle, rgba(3, 68, 220, .55), rgba(1, 32, 63, .2) 62%), rgba(8, 8, 10, .3); color: var(--shuttle-white); }
 .why__orbit { position: absolute; inset: 0; width: 100%; height: 100%; }
 .why__orbit #why-arc stop { stop-color: #fff; }
-.why__arc { transform-origin: 100px 100px; transform: rotate(var(--a, -45deg)); transition: transform 1.1s var(--ease-out); }
+.why__arc { transform-origin: 100px 100px; transform: rotate(var(--a, -22.5deg)); }
 .why__hub { position: relative; width: 66px; height: 66px; display: grid; place-items: center; border-radius: 50%; background: var(--shuttle-white); color: var(--space-blue); box-shadow: 0 0 0 12px rgba(255, 255, 255, .08), 0 0 60px rgba(3, 68, 220, .9); }
 .why__hub svg { width: 26px; height: 26px; }
 
